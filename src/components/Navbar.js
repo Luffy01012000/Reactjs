@@ -1,21 +1,38 @@
-//rfc
-import React,{useState} from "react";
+//rfc (react functional component)
+import React, { useState } from "react";
 //impt
 import PropTypes from "prop-types";
 import logo from "../logo.svg";
 import "../App.css";
+// import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   // export default function BasicExample() {
+    // const [props.mystyle, setprops.mystyle] = useState('light');
+  
+
+    // const [btnText, setBtnText] = useState("Enable Dark mode");
+  
+    // const toggleStyle = () => {
+    //   if (props.mystyle === "light") {
+    //     setprops.mystyle( "dark" );
+    //     setBtnText("Enable Light mode");
+    //   } else {
+    //     setprops.mystyle("light");
+    //     setBtnText("Enable Dark mode");
+    //   }
+    // };
   return (
     //    /*
-    <div>   
-    {/* <header>
+    <>
+    <div>
+      {/* <header>
     
     </header> */}
-      <nav className="navbar navbar-expand-lg  bg-body-tertiary">
+      {/* <nav className="navbar navbar-expand-lg  bg-body-tertiary"> */}
+      <nav className={`navbar navbar-expand-lg navbar-${props.mystyle} bg-${props.mystyle}`}>
         <div className="container-fluid">
-        <img src={logo} className="App-logo" alt="logo"/>
+          <img src={logo} className="App-logo" alt="logo" />
           {/* <a className="navbar-brand" href="#">
             {props.title}
           </a> */}
@@ -36,11 +53,9 @@ export default function Navbar(props) {
                 <a className="nav-link active" aria-current="page" href="#">
                   Home
                 </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Link
-                </a>
+                {/* <Link className="nav-link active" aria-current="page" to="/">
+                  Home
+                </Link> */}
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -49,24 +64,33 @@ export default function Navbar(props) {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                >
+                  >
                   Dropdown
                 </a>
                 <ul className="dropdown-menu">
                   <li>
+                    {/* <Link className="dropdown-item" to="/About">
+                    About us
+                  </Link> */}
                     <a className="dropdown-item" href="#">
-                      Action
+                      About us
                     </a>
                   </li>
                   <li>
+                    {/* <Link className="dropdown-item" to="/Alert">
+                    Alert
+                    </Link> */}
                     <a className="dropdown-item" href="#">
-                      Another action
+                      Alert
                     </a>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
+                    {/* <Link className="dropdown-item" to="/403">
+                      Something else here
+                    </Link> */}
                     <a className="dropdown-item" href="#">
                       Something else here
                     </a>
@@ -74,6 +98,21 @@ export default function Navbar(props) {
                 </ul>
               </li>
             </ul>
+            <div className={`form-check form-switch text-${props.mystyle==='light'?'dark':'light'} mx-3`}>
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault1"
+                onClick={props.toggleStyle}
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault1"
+              >
+                {props.btnText}
+              </label>
+            </div>
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
@@ -89,6 +128,7 @@ export default function Navbar(props) {
         </div>
       </nav>
     </div>
+</>
     // */
   );
 }
