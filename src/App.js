@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Textform from "./components/Textform";
 import Footer from "./components/Footer";
+import Darkmode from "./components/Darkmode";
 
 function App() {
   return (
@@ -27,12 +28,15 @@ function App() {
             Learn React
           </a>
         </div>
+        <div className="container">
+          <Darkmode/>
+        </div>
       </header>
       
       
-      {/* <footer className="App-footer">
+      <footer className="App-footer">
         <Footer/>
-      </footer> */}
+      </footer>
       
     </div>
   );

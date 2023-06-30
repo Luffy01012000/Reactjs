@@ -22,17 +22,28 @@ export default function Textform(props) {
         console.log("text updated");
         // alert("text updated");
         setText(event.target.value);
-    }
+    };
+    const handlecopy=()=>{
+        let text = document.getElementById("textbox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    };
+    const handleExtraSpace=()=>{
+    let newtext = text.split(/[ ]+/);
+    setText(newtext.join(" "));
+    };
     return (
         <>
-        <div className='container'>
+        <div className='container my-10'>
             <div className="mb-3 my-3">
                 <h1>{props.heading}</h1>
-                <textarea className="form-control" placeholder="Enter Your Text here.." value={text}  onChange={textonchange}  id="exampleFormControlTextarea1" rows="8"></textarea>
+                <textarea className="form-control" placeholder="Enter Your Text here.." value={text}  onChange={textonchange}  id="textbox" rows="8"></textarea>
             </div>
             <div className="wordcount"><p>words:{text.split(" ").length-1} and characters:{text.length}</p></div>
             <button className="btn btn-primary" onClick={btn1}>Convert to uppercase</button>
             <button className="btn btn-danger mx-2" onClick={btn2}>Clear text</button>
+            <button className="btn btn-secondary " onClick={handlecopy}>Copy text</button>
+            <button className="btn btn-success mx-2" onClick={handleExtraSpace}>Remove extra space</button>
         </div>
         </>
     )

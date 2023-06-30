@@ -1,5 +1,5 @@
 //rfc
-import React from "react";
+import React,{useState} from "react";
 //impt
 import PropTypes from "prop-types";
 import logo from "../logo.svg";
@@ -9,8 +9,11 @@ export default function Navbar(props) {
   // export default function BasicExample() {
   return (
     //    /*
-    <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <div>   
+    {/* <header>
+    
+    </header> */}
+      <nav className="navbar navbar-expand-lg  bg-body-tertiary">
         <div className="container-fluid">
         <img src={logo} className="App-logo" alt="logo"/>
           {/* <a className="navbar-brand" href="#">
