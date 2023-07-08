@@ -14,7 +14,8 @@ function Alert(props) {
   // };
   // showAlert("hello","success");
   return (
-    //if props.alert is false then don't execute rest of the code otherwise do it.
+    <div style={{height: '50px'}}>
+    {//if props.alert is false then don't execute rest of the code otherwise do it.
     props.alert && 
       <div
         className={`alert alert-${props.alert.type} alert-dismissible fade show`}
@@ -29,8 +30,8 @@ function Alert(props) {
           data-bs-dismiss="alert"
           aria-label="Close"
         ></button> */}
-      </div>
-    
+      </div>}
+      </div>    
   );
 }
 
