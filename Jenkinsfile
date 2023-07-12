@@ -11,7 +11,7 @@ pipeline{
             steps{
                 echo "Building code.."
                 sh "npm install"
-                sh "npm build"
+                sh "npm run build"
                 // sh "docker build -t gokud/myreactapp ."
                 // sh "docker rm -f reactapp"
                 // sh "docker run -p 80:80 --name=reactapp -d gokud/myreactapp"
