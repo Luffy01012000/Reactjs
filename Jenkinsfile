@@ -10,7 +10,9 @@ pipeline{
         stage('Build code'){
             steps{
                 echo "Building code.."
-                sh "docker build -t gokud/myreactapp:v${build}"
+                sh "docker build -t gokud/myreactapp:latest"
+                sh "docker rm -f reactapp"
+                sh "docker run -p 80:80 --name=reactapp -d gokud/myreactapp:latest"
             }
         }
         stage('Push img to dockerhub'){
