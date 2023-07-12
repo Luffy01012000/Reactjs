@@ -10,9 +10,7 @@ pipline{
     stage('Build code'){
         steps{
         echo "Building code.."
-        sh: "cd Reactjs"
-        sh: "npm i"
-        sh: "npm run build"
+        sh ""
         }
     }
     stage('Push img to dockerhub'){
