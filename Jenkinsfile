@@ -18,6 +18,7 @@ pipeline{
         stage('Push img to dockerhub'){
             steps{
                 echo "Pushing img.."
+                echo "hii"
                 // withCredentials([usernamePassword(credentialsId:"dockerhub",usernameVariable:"dockerHubUser",passwordVariable:"dockerHubPass")]){
                 // sh "docker tag appname ${env.dockerHubUser}/appname:latest"
                 // sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
