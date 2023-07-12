@@ -10,11 +10,14 @@ pipeline{
         stage('Build code'){
             steps{
                 echo "Building code.."
+                //In low-end aws ecinstance it didn't work
+                /*
                 sh "npm install"
                 sh "npm run build"
-                // sh "docker build -t gokud/myreactapp ."
-                // sh "docker rm -f reactapp"
-                // sh "docker run -p 80:80 --name=reactapp -d gokud/myreactapp"
+                */
+                sh "docker build -t gokud/myreactapp ."
+                sh "docker rm -f reactapp"
+                sh "docker run -p 80:80 --name=reactapp -d gokud/myreactapp"
             }
         }
         stage('Push img to dockerhub'){
