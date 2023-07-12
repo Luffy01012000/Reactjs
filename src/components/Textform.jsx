@@ -26,9 +26,13 @@ export default function Textform(props) {
         setText(event.target.value);
     };
     const handlecopy=()=>{
+        /*
         let text = document.getElementById("textbox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges();//to disSelect text 
+        */
+        navigator.clipboard.writeText(text);
         props.showAlert("copied to clipboard","success");
     };
     const handleExtraSpace=()=>{
@@ -43,11 +47,11 @@ export default function Textform(props) {
                 <h1 style={{color: props.mystyle==='light'?'#1e1f1f':'#fff'}}>{props.heading}</h1>
                 <textarea className="form-control" placeholder="Enter Your Text here.." value={text}  onChange={textonchange}  id="textbox" rows="8"></textarea>
             </div>
-            <div className="wordcount"  style={{color: props.mystyle==='light'?'#1e1f1f':'#fff'}}><p >words:{text.split(" ").length-1} and characters:{text.length}</p></div>
-            <button className="btn btn-primary" onClick={btn1}>Convert to uppercase</button>
-            <button className="btn btn-danger mx-2" onClick={btn2}>Clear text</button>
-            <button className="btn btn-secondary " onClick={handlecopy}>Copy text</button>
-            <button className="btn btn-success mx-2" onClick={handleExtraSpace}>Remove extra space</button>
+            <div className="wordcount"  style={{color: props.mystyle==='light'?'#1e1f1f':'#fff'}}><p >words:{text.split(/\s+/).length-1} and characters:{text.length}</p></div>
+            <button disabled={text.length===0} className="btn btn-primary" onClick={btn1}>Convert to uppercase</button>
+            <button disabled={text.length===0} className="btn btn-danger mx-2" onClick={btn2}>Clear text</button>
+            <button disabled={text.length===0} className="btn btn-secondary " onClick={handlecopy}>Copy text</button>
+            <button disabled={text.length===0} className="btn btn-success mx-2" onClick={handleExtraSpace}>Remove extra space</button>
         </div>
         </>
     )

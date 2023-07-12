@@ -1,10 +1,10 @@
 //rfc (react functional component)
-import React, { useState } from "react";
+// import React, { useState } from "react";
 //impt
 import PropTypes from "prop-types";
 import logo from "../logo.svg";
 import "../App.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   // export default function BasicExample() {
@@ -50,17 +50,17 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                {/* <a className="nav-link active" aria-current="page" href="#">
                   Home
-                </a>
-                {/* <Link className="nav-link active" aria-current="page" to="/">
+                </a> */}
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </Link> */}
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="/"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -69,31 +69,31 @@ export default function Navbar(props) {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    {/* <Link className="dropdown-item" to="/About">
+                    <Link className="dropdown-item" to="/About">
                     About us
-                  </Link> */}
-                    <a className="dropdown-item" href="#">
+                  </Link>
+                    {/* <a className="dropdown-item" href="#">
                       About us
-                    </a>
+                    </a> */}
                   </li>
-                  <li>
-                    {/* <Link className="dropdown-item" to="/Alert">
+                  {/* <li>
+                    <Link className="dropdown-item" to="/Alert">
                     Alert
                     </Link> */}
-                    <a className="dropdown-item" href="#">
+                    {/* <a className="dropdown-item" href="#">
                       Alert
-                    </a>
-                  </li>
+                    </a> */}
+                  {/* </li> */}
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    {/* <Link className="dropdown-item" to="/403">
+                    <Link className="dropdown-item" to="/403">
                       Something else here
-                    </Link> */}
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    {/* <a className="dropdown-item" href="#">
                       Something else here
-                    </a>
+                    </a> */}
                   </li>
                 </ul>
               </li>

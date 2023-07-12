@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 function Alert(props) {
   const capitalize = (word) => {
@@ -23,13 +23,13 @@ function Alert(props) {
       >
         <strong>{capitalize(props.alert.type)}{`\t`}</strong>
         {props.alert.msg}
-        {/* <strong>Holy guacamole!</strong> You should check in on some of those fields below. */}
-        {/* <button
+        {/* <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button
           type="button"
           className="btn-close"
           data-bs-dismiss="alert"
           aria-label="Close"
-        ></button> */}
+        >click me</button> */}
       </div>}
       </div>    
   );

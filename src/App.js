@@ -2,10 +2,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Textform from "./components/Textform.jsx";
-// import Footer from "./components/Footer";
-// import Darkmode from "./components/Darkmode";
+import Footer from "./components/Footer";
+import Darkmode from "./components/Darkmode";
 import Alert from "./components/Alert";
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { useState } from "react";
 
 function App() {
@@ -46,53 +46,41 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <Router> */}
+        <Router>
           <Navbar title="Demo" mystyle={mystyle} btnText={btnText} toggleStyle={toggleStyle} /> 
           {/* <Navbar title="Demo" />  */}
       <Alert alert={alertncol}/>
           {/* function */}
           {/* <Navbar/> */}
-          <div className="container">
-        <Textform heading="Enter text below to Analyze.." mystyle={mystyle} showAlert={showAlert}/>
-        </div>
           {/* <div className="container">
-          <img src={logo} className="App-bodylogo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <Textform heading="Enter text below to Analyze.." mystyle={mystyle} showAlert={showAlert}/>
         </div> */}
+
           {/* <div className="container"> */}
           {/* <Router> */}
           {/* <Routes path="/" element={<Navbar title="Demo" />}> */}
-          {/* <Routes> */}
+          <Routes>
             {/* <Route path="/" element={<Navbar title="Demo" />} /> */}
 
-            {/* <Route
+            <Route
               path="/"
-              element={<Textform heading="Enter text below to Analyze.." />}
-            /> */}
-            {/* </Route> */}
-            {/* <Route path="About" element={<Darkmode />} />
-            <Route path="Alert" element={<Alert alert="success" />} />
-            <Route path="*" element="404" /> */}
+              element={ <Textform heading="Enter text below to Analyze.." mystyle={mystyle} showAlert={showAlert}/>}
+              />
+              {/* </Route> */}
+            <Route path="/About" element={<Darkmode mystyle={mystyle}/>} />
+            <Route path="/403" element="403" />
+            <Route path="*" element="404" />
+            {/* <Route path="Alert" element={<Alert alert={alertncol}/>} /> */}
             {/* <Darkmode /> */}
             {/* <Alert alert="success" /> */}
-          {/* </Routes> */}
+          </Routes>
         {/* </div> */}
-        {/* </Router> */}
+        </Router>
       </header>
 
-      {/* <footer className="App-footer">
-        <Footer />
-      </footer> */}
+      <footer className="App-footer">
+        <Footer log={logo} mystyle={mystyle}/>
+      </footer>
     </div>
   );
 }

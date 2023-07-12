@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Darkmode() {
+export default function Darkmode(props) {
   const [mystyle, setMyStyle] = useState({
     color: "black",
     backgroundColor: "white",
@@ -153,14 +153,17 @@ export default function Darkmode() {
             role="switch"
             id="flexSwitchCheckDefault1"
           />
-          <label className="form-check-label" htmlFor="flexSwitchCheckDefault1">
+          {/* <label className="form-check-label" htmlFor="flexSwitchCheckDefault1">
           {btnText}
-          </label>
-        </div>
-      </div>
+          </label> */}
           <button className="btn btn-primary" onClick={toggleStyle}>
             {btnText}
           </button>
+        </div>
+      </div>
+          {/* <button className="btn btn-primary" onClick={toggleStyle}>
+            {btnText}
+          </button> */}
       <div className="container" id="hidebtn" >
       <div className="form-check form-switch">
           <input
@@ -171,7 +174,7 @@ export default function Darkmode() {
             id="flexSwitchCheckDefault"
             style={togbtnmsg}
           />
-          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={{color: props.mystyle==='light'?'#333':'#fff'}}>
           {btnmsg}
           </label>
         </div>
