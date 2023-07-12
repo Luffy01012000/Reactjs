@@ -10,7 +10,7 @@ pipeline{
         stage('Build code'){
             steps{
                 echo "Building code.."
-                sh "docker build -t gokud/myreactapp"
+                sh "docker build -t gokud/myreactapp ."
                 sh "docker rm -f reactapp"
                 sh "docker run -p 80:80 --name=reactapp -d gokud/myreactapp"
             }
