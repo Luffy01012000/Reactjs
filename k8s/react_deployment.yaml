@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-reactapp
+  labels:
+      app: reactapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactapp
+  template:
+    metadata:
+      labels:
+        app: reactapp
+    spec:
+      containers:
+        - image: gokud/myreactapp:v3
+          name: my-reactapp
+          ports:
+            - containerPort: 80  
+          
+            
+              
+      

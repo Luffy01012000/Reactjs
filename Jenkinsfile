@@ -15,26 +15,26 @@ pipeline{
                 sh "npm install"
                 sh "npm run build"
                 */
-                sh "docker build -t gokud/myreactapp ."
-                sh "docker rm -f reactapp"
-                sh "docker run -p 80:80 --name=reactapp -d gokud/myreactapp"
+                sh 'docker build -t gokud/myreactapp .'
+                // sh "docker rm -f reactapp"
+                // sh "docker run -p 80:80 --name=reactapp -d gokud/myreactapp"
             }
         }
         stage('Push img to dockerhub'){
             steps{
                 echo "Pushing img.."
-                echo "hola!!"
-                // withCredentials([usernamePassword(credentialsId:"dockerhub",usernameVariable:"dockerHubUser",passwordVariable:"dockerHubPass")]){
+                withCredentials([usernamePassword(credentialsId:"dockerhub",usernameVariable:"dockerHubUser",passwordVariable:"dockerHubPass")]){
                 // sh "docker tag appname ${env.dockerHubUser}/appname:latest"
-                // sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                // sh "docker push ${env.dockerHubUser}/appname:latest"
-                // }
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker push ${env.dockerHubUser}/myreactapp:latest"
+                }
                 
             }
         }
         stage('Deploy container'){
             steps{
                 echo "Deploying container.."
+                  // sh "docker run -p 80:80 --name=reactapp -d gokud/myreactapp"
             }
         }
     }
