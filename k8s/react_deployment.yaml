@@ -16,6 +16,8 @@ spec:
     spec:
       containers:
         - image: gokud/myreactapp:v3
+          restartPolicy: OnFailure
+          # restartPolicy: Always
           name: my-reactapp
           ports:
             - containerPort: 80  
